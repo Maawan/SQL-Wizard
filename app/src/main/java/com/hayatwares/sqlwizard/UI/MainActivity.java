@@ -1,8 +1,10 @@
-package com.hayatwares.sqlwizard;
+package com.hayatwares.sqlwizard.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.hayatwares.sqlwizard.R;
 
 public class MainActivity extends AppCompatActivity {
 
