@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name=".UI.LevelsPage"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".UI.MainActivity"
             android:exported="false">
