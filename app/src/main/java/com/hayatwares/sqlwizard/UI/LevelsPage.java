@@ -2,11 +2,28 @@ package com.hayatwares.sqlwizard.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
+import com.hayatwares.sqlwizard.Network.networkChangeListner;
 import com.hayatwares.sqlwizard.R;
 
 public class LevelsPage extends AppCompatActivity {
+
+    // NETWORK VALIDATION
+    networkChangeListner network_change =  new networkChangeListner();
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(network_change, filter);
+        super.onStart();
+    }
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(network_change);
+        super.onStop();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
