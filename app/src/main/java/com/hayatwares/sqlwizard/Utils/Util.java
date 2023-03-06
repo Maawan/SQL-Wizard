@@ -1,12 +1,10 @@
-package com.hayatwares.sqlwizard.Network;
+package com.hayatwares.sqlwizard.Utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import java.net.ContentHandler;
-
-public class common {
+public class Util {
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {

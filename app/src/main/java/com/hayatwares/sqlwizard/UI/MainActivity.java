@@ -7,13 +7,13 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 
-import com.hayatwares.sqlwizard.Network.networkChangeListner;
+import com.hayatwares.sqlwizard.Network.NetworkChangeListener;
 import com.hayatwares.sqlwizard.R;
 
 public class MainActivity extends AppCompatActivity {
 
     // NETWORK VALIDATION
-    networkChangeListner network_change =  new networkChangeListner();
+    NetworkChangeListener network_change =  new NetworkChangeListener();
     protected void onStart() {
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(network_change, filter);
