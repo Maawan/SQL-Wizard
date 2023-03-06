@@ -2,6 +2,7 @@ package com.hayatwares.sqlwizard.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -19,8 +20,7 @@ public class LevelsPage extends AppCompatActivity {
         super.onStart();
     }
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         unregisterReceiver(network_change);
         super.onStop();
     }
@@ -30,5 +30,6 @@ public class LevelsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels_page);
         getSupportActionBar().hide();
+        startActivity(new Intent(LevelsPage.this , QuestionPage.class));
     }
 }
