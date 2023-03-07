@@ -19,6 +19,5 @@ public class QuestionPage extends AppCompatActivity {
                 "help him to list all the criminal files who were filed after 2017\n"
                 +"A Sample of Record is given below. Ram just need names of Criminals";
         question.setText(q);
-
     }
 }
