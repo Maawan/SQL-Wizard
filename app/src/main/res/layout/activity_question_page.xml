@@ -65,25 +65,36 @@
                 android:layout_below="@+id/questionTextView"
                 android:layout_height="wrap_content"
                 android:src="@drawable/question1_image"/>
+
+            <LinearLayout android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="38sp"
+                android:orientation="horizontal"
+                xmlns:android="http://schemas.android.com/apk/res/android" />
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:elevation="20dp"
             app:cardElevation="20dp"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentBottom="false"
+            android:layout_centerInParent="true"
             android:id="@+id/footer"
             android:layout_margin="20dp"
             app:cardCornerRadius="30dp"
             android:minHeight="50dp"
             android:layout_height="wrap_content">
+            
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
+                <MultiAutoCompleteTextView
+                    android:id="@+id/autoComplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="28dp"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="-5dp"
