@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // CREATE DEFAULT DATABASE
         MyDbHandler db = new MyDbHandler(MainActivity.this);
 
@@ -48,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 + " TEXT, " + Params.KEY_LEVEL_HINT1 + " TEXT, " + Params.KEY_LEVEL_HINT2 + " TEXT, " + Params.KEY_LEVEL_HINT3
                 + " TEXT, " + Params.KEY_LEVEL_HINT4 + " TEXT, " + Params.KEY_LEVEL_HINT5 + " TEXT, " + Params.KEY_LEVEL_ANS1
                 + " TEXT, " + Params.KEY_LEVEL_ANS2 + " TEXT, " + Params.KEY_LEVEL_ANS3 + " TEXT, " + Params.KEY_LEVEL_ANS4
-                + " TEXT, " + Params.KEY_LEVEL_ANS5 + " TEXT, " + Params.KEY_NAME + " TEXT" + ")";
+                + " TEXT, " + Params.KEY_LEVEL_ANS5 + " TEXT, " + Params.KEY_NAME + " TEXT, " + Params.KEY_SAMPLE_PICTURE1
+                + " TEXT, " + Params.KEY_SAMPLE_PICTURE2 + " TEXT, " + Params.KEY_SAMPLE_PICTURE3 + " TEXT, " + Params.KEY_SAMPLE_PICTURE4
+                + " TEXT, " + Params.KEY_SAMPLE_PICTURE5 + " TEXT" + ")";
+
         Log.e("create",create);
 
         // POPULATE DEFAULT DATABASE
