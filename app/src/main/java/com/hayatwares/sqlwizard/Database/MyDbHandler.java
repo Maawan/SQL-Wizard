@@ -26,7 +26,9 @@ public class MyDbHandler extends SQLiteOpenHelper {
                 + " TEXT, " + Params.KEY_LEVEL_HINT1 + " TEXT, " + Params.KEY_LEVEL_HINT2 + " TEXT, " + Params.KEY_LEVEL_HINT3
                 + " TEXT, " + Params.KEY_LEVEL_HINT4 + " TEXT, " + Params.KEY_LEVEL_HINT5 + " TEXT, " + Params.KEY_LEVEL_ANS1
                 + " TEXT, " + Params.KEY_LEVEL_ANS2 + " TEXT, " + Params.KEY_LEVEL_ANS3 + " TEXT, " + Params.KEY_LEVEL_ANS4
-                + " TEXT, " + Params.KEY_LEVEL_ANS5 + " TEXT, " + Params.KEY_NAME + " TEXT" + ")";
+                + " TEXT, " + Params.KEY_LEVEL_ANS5 + " TEXT, " + Params.KEY_NAME + " TEXT, " + Params.KEY_SAMPLE_PICTURE1
+                + " TEXT, " + Params.KEY_SAMPLE_PICTURE2 + " TEXT, " + Params.KEY_SAMPLE_PICTURE3 + " TEXT, " + Params.KEY_SAMPLE_PICTURE4
+                + " TEXT, " + Params.KEY_SAMPLE_PICTURE5 + " TEXT" + ")";
 
         //RUN QUERY
         db.execSQL( create );
@@ -56,6 +58,12 @@ public class MyDbHandler extends SQLiteOpenHelper {
         values.put(Params.KEY_LEVEL_ANS4,entry.getAns4());
         values.put(Params.KEY_LEVEL_ANS5,entry.getAns5());
         values.put(Params.KEY_NAME,entry.getName());
+        values.put(Params.KEY_SAMPLE_PICTURE1,entry.getPicture1());
+        values.put(Params.KEY_SAMPLE_PICTURE2,entry.getPicture2());
+        values.put(Params.KEY_SAMPLE_PICTURE3,entry.getPicture3());
+        values.put(Params.KEY_SAMPLE_PICTURE4,entry.getPicture4());
+        values.put(Params.KEY_SAMPLE_PICTURE5,entry.getPicture5());
+
 
         // INSERTING IN THE TABLE
         db.insert(Params.TABLE_NAME, null, values);
@@ -93,6 +101,11 @@ public class MyDbHandler extends SQLiteOpenHelper {
             row.setAns4(cursor.getString(15));
             row.setAns5(cursor.getString(16));
             row.setName(cursor.getString(17));
+            row.setPicture1(cursor.getString(18));
+            row.setPicture2(cursor.getString(19));
+            row.setPicture3(cursor.getString(20));
+            row.setPicture4(cursor.getString(21));
+            row.setPicture5(cursor.getString(22));
         }
         db.close();
         return row;
@@ -129,6 +142,12 @@ public class MyDbHandler extends SQLiteOpenHelper {
         values.put(Params.KEY_LEVEL_ANS4,entry.getAns4());
         values.put(Params.KEY_LEVEL_ANS5,entry.getAns5());
         values.put(Params.KEY_NAME,entry.getName());
+        values.put(Params.KEY_SAMPLE_PICTURE1,entry.getPicture1());
+        values.put(Params.KEY_SAMPLE_PICTURE2,entry.getPicture2());
+        values.put(Params.KEY_SAMPLE_PICTURE3,entry.getPicture3());
+        values.put(Params.KEY_SAMPLE_PICTURE4,entry.getPicture4());
+        values.put(Params.KEY_SAMPLE_PICTURE5,entry.getPicture5());
+
 
         // RETURNS NO OF AFFECTED ROWS
         return db.update(Params.TABLE_NAME, values, Params.KEY_Level_ID + "=?", new String[]{String.valueOf(id)});

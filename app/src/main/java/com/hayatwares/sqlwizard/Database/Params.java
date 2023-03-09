@@ -29,7 +29,6 @@ public class Params {
 
     public static final String KEY_NAME = "NAME";
 
-    // BETA
     public static final String KEY_SAMPLE_PICTURE1 = "PICTURE1";
     public static final String KEY_SAMPLE_PICTURE2 = "PICTURE2";
     public static final String KEY_SAMPLE_PICTURE3 = "PICTURE3";
