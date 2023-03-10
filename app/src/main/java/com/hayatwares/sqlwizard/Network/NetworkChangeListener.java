@@ -19,7 +19,7 @@ public class NetworkChangeListener extends BroadcastReceiver {
         }
         else {
             Log.e("mynet", "internet is ON");
-            // UPDATE SHARED PREFERENCES
+
 
 
         }

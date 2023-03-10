@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/question_selection_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="-10dp"
+        android:id="@+id/nav"
+        android:elevation="20dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@raw/font1"
+            android:text="Select Question"
+            android:gravity="center"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/recycler"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_below="@+id/nav"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

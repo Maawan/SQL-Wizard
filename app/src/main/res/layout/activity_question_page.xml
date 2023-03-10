@@ -51,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:id="@+id/questionView"
             android:background="@drawable/corner_radius"
             android:layout_height="wrap_content">
             <TextView
@@ -79,11 +80,11 @@
             android:layout_width="match_parent"
             android:elevation="20dp"
             app:cardElevation="20dp"
-            android:layout_alignParentBottom="false"
-            android:layout_centerInParent="true"
-            android:id="@+id/footer"
+            android:id="@+id/queryView"
+            android:layout_below="@id/questionView"
             android:layout_margin="20dp"
             app:cardCornerRadius="30dp"
+
             android:minHeight="50dp"
             android:layout_height="wrap_content">
             
@@ -102,6 +103,35 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="-5dp"
                     android:hint="Enter your SQL Query here !"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_centerHorizontal="true"
+            app:cardCornerRadius="10dp"
+            android:elevation="10dp"
+            app:cardElevation="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:background="@color/submit_btn_color"
+            android:layout_below="@+id/queryView"
+            android:layout_height="60dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@color/submit_btn_color">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Submit"
+                    android:gravity="center"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:fontFamily="@raw/font1"
+                    />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>

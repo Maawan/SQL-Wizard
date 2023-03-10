@@ -38,12 +38,6 @@ public class QuestionPage extends AppCompatActivity {
         question.setText(q);
 
 
-
-
-
-
-
-
         // AUTOCOMPLETE IMPLEMENTATION
         MultiAutoCompleteTextView editText = findViewById(R.id.autoComplete);
         // SET THE ADAPTER TO AUTO SUGGEST COMPLETION
@@ -80,7 +74,6 @@ public class QuestionPage extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                Log.e("background","touched");
                 return false;
             }
         });

@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 public class Util {
+    public static float Global_Main_Value = 1.20f;
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
