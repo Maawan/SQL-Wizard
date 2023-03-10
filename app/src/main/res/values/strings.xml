@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SQL Wizard</string>
+    <string name="lockedLevelText">Oops ! This level is currently locked, Complete pending levels to unlock this one</string>
 </resources>

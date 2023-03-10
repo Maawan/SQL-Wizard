@@ -1,5 +1,6 @@
 package com.hayatwares.sqlwizard.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,10 +41,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GridHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GridHolder holder, @SuppressLint("RecyclerView") int position) {
         String quesNo = String.valueOf(position + 1);
         holder.questionNo.setText(quesNo);
-        if(position > questions){
+        if(position+1 > questions){
             holder.lockLayout.setVisibility(View.VISIBLE);
             holder.questionNo.setVisibility(View.INVISIBLE);
         }else{
@@ -53,7 +54,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
         holder.wholeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(position > questions){
+                if(position+1 > questions){
                     pushedInterface.pushed();
                 }else{
                     Intent intent = new Intent(context , QuestionPage.class);

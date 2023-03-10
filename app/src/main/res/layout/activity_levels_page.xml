@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/question_selection_background"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
@@ -88,6 +89,7 @@ molestiae quas vel sint commodi "/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/corner_rounded"
                     android:id="@+id/lockedLayout2">
                     <ImageView
                         android:layout_width="wrap_content"
@@ -152,6 +154,7 @@ molestiae quas vel sint commodi "/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/corner_rounded"
                     android:id="@+id/lockedLayout3">
                     <ImageView
                         android:layout_width="wrap_content"
@@ -216,6 +219,7 @@ molestiae quas vel sint commodi "/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/corner_rounded"
                     android:id="@+id/lockedLayout4">
                     <ImageView
                         android:layout_width="wrap_content"
