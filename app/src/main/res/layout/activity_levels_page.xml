@@ -29,6 +29,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:src="@drawable/lock"
                         android:layout_margin="25dp"/>
                 </RelativeLayout>
@@ -95,6 +96,7 @@ molestiae quas vel sint commodi "/>
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/lock"
+                        android:layout_centerInParent="true"
                         android:layout_margin="25dp"/>
                 </RelativeLayout>
                 <LinearLayout
@@ -160,6 +162,7 @@ molestiae quas vel sint commodi "/>
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/lock"
+                        android:layout_centerInParent="true"
                         android:layout_margin="25dp"/>
                 </RelativeLayout>
                 <LinearLayout
@@ -224,6 +227,7 @@ molestiae quas vel sint commodi "/>
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
                         android:src="@drawable/lock"
                         android:layout_margin="25dp"/>
                 </RelativeLayout>
