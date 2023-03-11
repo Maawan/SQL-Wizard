@@ -7,10 +7,13 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.hayatwares.sqlwizard.Database.MyDbHandler;
 import com.hayatwares.sqlwizard.Network.NetworkChangeListener;
 import com.hayatwares.sqlwizard.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,5 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // CREATE DEFAULT DATABASE
         MyDbHandler db = new MyDbHandler(MainActivity.this);
         startActivity(new Intent(MainActivity.this, LevelsPage.class));
+
     }
 }

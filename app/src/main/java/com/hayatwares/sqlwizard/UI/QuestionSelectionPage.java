@@ -37,7 +37,7 @@ public class QuestionSelectionPage extends AppCompatActivity implements LockedBu
             totalQuestions = Util.getTotalQuestionCount(curLevel);
             String s = String.valueOf(Util.Global_Main_Value);
             if(s.length() > 2){
-                int tempLevels = Integer.parseInt(s.substring(2));
+                int tempLevels = Integer.parseInt(s.substring(2)) + 1;
                 //Toast.makeText(this, "ll "+ tempLevels, Toast.LENGTH_SHORT).show();
                 if(tempLevels > totalQuestions){
                     tempLevels = totalQuestions;

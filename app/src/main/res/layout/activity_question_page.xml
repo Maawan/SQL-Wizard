@@ -26,6 +26,7 @@
                     android:layout_width="wrap_content"
                     android:text="Level 1"
                     android:textStyle="bold"
+                    android:id="@+id/levelTextView"
                     android:textSize="20dp"
                     android:fontFamily="@raw/font1"
                     android:layout_height="wrap_content"/>
@@ -37,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+                    android:id="@+id/problemTextView"
                     android:textSize="20dp"
                     android:fontFamily="@raw/font1"
                     android:text="Problem 1"/>
@@ -65,9 +67,9 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_margin="20dp"
+                android:id="@+id/questionImage"
                 android:layout_below="@+id/questionTextView"
-                android:layout_height="wrap_content"
-                android:src="@drawable/question1_image"/>
+                android:layout_height="wrap_content" />
 
             <LinearLayout android:id="@+id/test"
                 android:layout_width="match_parent"
@@ -120,7 +122,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:id="@+id/submitQueryBtn"
                 android:background="@color/submit_btn_color">
                 <TextView
                     android:layout_width="match_parent"

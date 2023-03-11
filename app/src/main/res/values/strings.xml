@@ -1,4 +1,17 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SQL Wizard</string>
     <string name="lockedLevelText">Oops ! This level is currently locked, Complete pending levels to unlock this one</string>
+    <string name="sample">Abc</string>
+
+    <!--    level 1 -->
+    <string name="Q_0_0">PlaceHolder value fioernfoi34fnklewmfoie ndfioernf3,mfn</string>
+    <string name="H1_0_0">Hint 1 </string>
+    <string name="H2_0_0">Hint 2</string>
+    <string name="I_0_0" tools:ignore="Typos">question1_image</string>
+
+<!--    level 2-->
+    <string name="Q_0_1">PlaceHolder 2 value fioernfoi34fnklewmfoie ndfioernf3,mfn</string>
+    <string name="H1_0_1">Hint 2 </string>
+    <string name="H2_0_1">Hint 2</string>
+    <string name="I_0_1" tools:ignore="Typos">question1_image</string>
 </resources>

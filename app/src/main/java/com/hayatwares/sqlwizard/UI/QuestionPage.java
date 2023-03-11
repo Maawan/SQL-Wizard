@@ -3,6 +3,7 @@ package com.hayatwares.sqlwizard.UI;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,30 +15,58 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View;
 import android.view.KeyEvent;
 import android.view.View.OnKeyListener;
+import android.widget.Toast;
+
+import com.hayatwares.sqlwizard.Database.MyDbHandler;
+import com.hayatwares.sqlwizard.Models.Question;
 import com.hayatwares.sqlwizard.R;
 import com.hayatwares.sqlwizard.Utils.Autofill;
 import com.hayatwares.sqlwizard.Utils.SpaceTokenizer;
 
+import org.w3c.dom.Text;
+
 public class QuestionPage extends AppCompatActivity {
     TextView question;
+    int curLevel = -1;
+    int curQuestion = -1;
+
+    Question curQuestionObject;
+    TextView levelView,problemView;
+    ImageView questionImage;
+    private static final String A = "Level ";
+    private static final String B = "Problem ";
+    private RelativeLayout submitQueryBtn;
+    private MyDbHandler dbHandler;
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
         getSupportActionBar().hide();
         question = findViewById(R.id.questionTextView);
-        String q = "Ram is a policeman, he is working on a high profile case, \n" +
-                "help him to list all the criminal files who were filed after 2017\n"
-                +"A Sample of Record is given below. Ram just need names of Criminals";
-        question.setText(q);
-
-
+        Intent intent = getIntent();
+        curLevel = intent.getIntExtra("level" , 0);
+        curQuestion = intent.getIntExtra("questionNo" , 0);
+        submitQueryBtn = findViewById(R.id.submitQueryBtn);
+        curQuestionObject = new Question(curLevel , curQuestion ,this );
+        dbHandler = new MyDbHandler(QuestionPage.this);
+        levelView = findViewById(R.id.levelTextView);
+        problemView = findViewById(R.id.problemTextView);
+        levelView.setText(A + (curLevel + 1));
+        problemView.setText(B + (curQuestion+1));
+        question.setText(curQuestionObject.getQuestionStatement());
+        questionImage = findViewById(R.id.questionImage);
+        questionImage.setImageResource(getResources().getIdentifier(curQuestionObject.getImagePath(), "drawable", getPackageName()));
+        Toast.makeText(this, "fioermnf " + dbHandler.checkAndValidateAnswer("SELECT name FROM Abc;",curLevel , curQuestion) + " jkewnf", Toast.LENGTH_SHORT).show();
         // AUTOCOMPLETE IMPLEMENTATION
         MultiAutoCompleteTextView editText = findViewById(R.id.autoComplete);
         // SET THE ADAPTER TO AUTO SUGGEST COMPLETION

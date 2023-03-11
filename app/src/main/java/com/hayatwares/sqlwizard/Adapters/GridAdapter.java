@@ -25,6 +25,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
     float questions;
     int totalQuestions;
     Context context;
+     private int curLevel;
     LockedButtonPushed pushedInterface;
     public GridAdapter(int totalQuestion , float unlockedQuestions , Context context , LockedButtonPushed pushedInterface){
         this.totalQuestions = totalQuestion;
@@ -57,7 +58,8 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
                 if(position+1 > questions){
                     pushedInterface.pushed();
                 }else{
-                    Intent intent = new Intent(context , QuestionPage.class);
+                    Intent intent = new Intent(context , QuestionPage.class).
+                            putExtra("level",curLevel).putExtra("questionNo" , position);
                     context.startActivity(intent);
                 }
             }
