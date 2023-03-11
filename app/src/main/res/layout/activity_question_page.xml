@@ -83,7 +83,7 @@
             android:id="@+id/queryView"
             android:layout_below="@id/questionView"
             android:layout_margin="20dp"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="20dp"
 
             android:minHeight="50dp"
             android:layout_height="wrap_content">
