@@ -59,20 +59,28 @@ public class MyDbHandler extends SQLiteOpenHelper {
             ansToBe.add("Karan");
             ansToBe.add("Bsdk hai");
             ansToBe.add("Lawda bhi hai");
-            Cursor cursor = db.rawQuery(query , null , null);
+            Cursor cursor = null;
+            try{
+                cursor = db.rawQuery(query , null , null);
+            }catch (Exception e){
+                return false;
+            }
             if(cursor == null) return false;
             ArrayList<String> userAns = new ArrayList<>();
             while(cursor.moveToNext()){
                 userAns.add(cursor.getString(cursor.getColumnIndex("name")));
             }
             for(int i = 0 ; i < Math.min(userAns.size() , ansToBe.size()) ; i++){
-                if(!userAns.get(i).equals(ansToBe.get(i))) return false;
+                if(!userAns.get(i).equals(ansToBe.get(i))){
+                    cursor.close();
+                    return false;
+                }
             }
+            cursor.close();
             return true;
         }
         return false;
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

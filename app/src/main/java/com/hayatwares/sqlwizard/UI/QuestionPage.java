@@ -45,7 +45,7 @@ public class QuestionPage extends AppCompatActivity {
     private static final String B = "Problem ";
     private RelativeLayout submitQueryBtn;
     private MyDbHandler dbHandler;
-
+    private MultiAutoCompleteTextView queryEditText;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class QuestionPage extends AppCompatActivity {
         question = findViewById(R.id.questionTextView);
         Intent intent = getIntent();
         curLevel = intent.getIntExtra("level" , 0);
+        queryEditText = findViewById(R.id.autoComplete);
         curQuestion = intent.getIntExtra("questionNo" , 0);
         submitQueryBtn = findViewById(R.id.submitQueryBtn);
         curQuestionObject = new Question(curLevel , curQuestion ,this );
@@ -66,7 +67,7 @@ public class QuestionPage extends AppCompatActivity {
         question.setText(curQuestionObject.getQuestionStatement());
         questionImage = findViewById(R.id.questionImage);
         questionImage.setImageResource(getResources().getIdentifier(curQuestionObject.getImagePath(), "drawable", getPackageName()));
-        Toast.makeText(this, "fioermnf " + dbHandler.checkAndValidateAnswer("SELECT name FROM Abc;",curLevel , curQuestion) + " jkewnf", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "fioermnf " + dbHandler.checkAndValidateAnswer("SELECT name FROM Abc;",curLevel , curQuestion) + " jkewnf", Toast.LENGTH_SHORT).show();
         // AUTOCOMPLETE IMPLEMENTATION
         MultiAutoCompleteTextView editText = findViewById(R.id.autoComplete);
         // SET THE ADAPTER TO AUTO SUGGEST COMPLETION
@@ -104,6 +105,22 @@ public class QuestionPage extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 return false;
+            }
+        });
+
+        submitQueryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String q = queryEditText.getText().toString();
+                if(!q.equals("")){
+                    if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion)){
+                        Toast.makeText(QuestionPage.this, "Correct Answer !", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(QuestionPage.this, "Oops ! your answer is not correct", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(QuestionPage.this, "Query is Empty ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
