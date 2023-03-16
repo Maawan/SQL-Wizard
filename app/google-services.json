@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "31997122885",
+    "project_id": "sql-wizard",
+    "storage_bucket": "sql-wizard.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31997122885:android:002ecd33822d37a073c62c",
+        "android_client_info": {
+          "package_name": "com.hayatwares.sqlwizard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31997122885-shl1bogsf509iocfk7l2tiillh2q3gcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hayatwares.sqlwizard",
+            "certificate_hash": "518b02522ad441fdca35813899b736dc395a2166"
+          }
+        },
+        {
+          "client_id": "31997122885-0r5vl3n06a7u4it9vkjq43sckd5tj9ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByIYI2gpXqloP9uPqg2lSuykXQsD3xP5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31997122885-0r5vl3n06a7u4it9vkjq43sckd5tj9ve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
