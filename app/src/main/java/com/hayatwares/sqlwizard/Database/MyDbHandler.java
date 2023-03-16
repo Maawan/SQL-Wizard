@@ -12,9 +12,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-// shubham here
 public class MyDbHandler extends SQLiteOpenHelper {
-    private static String DATABASE_NAME = "Default_Database";
+    private static String DATABASE_NAME = "Karan_BSDK_KA_HAI_MAA_KA_LAUDA_HAI";
     public MyDbHandler(Context context) {
 
         super(context, DATABASE_NAME, null, 1);
