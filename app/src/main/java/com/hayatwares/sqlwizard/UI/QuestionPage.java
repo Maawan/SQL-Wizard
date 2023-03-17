@@ -58,10 +58,14 @@ public class QuestionPage extends AppCompatActivity {
         queryEditText = findViewById(R.id.autoComplete);
         curQuestion = intent.getIntExtra("questionNo" , 0);
         submitQueryBtn = findViewById(R.id.submitQueryBtn);
+
         curQuestionObject = new Question(curLevel , curQuestion ,this );
+
+
         dbHandler = new MyDbHandler(QuestionPage.this);
         levelView = findViewById(R.id.levelTextView);
         problemView = findViewById(R.id.problemTextView);
+
         levelView.setText(A + (curLevel + 1));
         problemView.setText(B + (curQuestion+1));
         question.setText(curQuestionObject.getQuestionStatement());

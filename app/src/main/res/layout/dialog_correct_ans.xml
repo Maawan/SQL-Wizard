@@ -17,18 +17,29 @@
             android:layout_centerHorizontal="true" />
         <TextView
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/App_Main_Color"
+            android:id="@+id/congrats"
             android:layout_below="@+id/image"
+            android:text="@string/congrats"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/congrats"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:textColor="#1e1e1e"
             android:layout_marginRight="20dp"
             android:gravity="center"
-            android:textSize="16dp"
-            android:textStyle="bold"
+            android:textSize="16sp"
             android:id="@+id/message"
             android:fontFamily="@raw/font1"
-            android:text="@string/lockedLevelText"/>
+            android:text="@string/correct_ans"/>
     </RelativeLayout>
 
 </RelativeLayout>

@@ -1,7 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SQL Wizard</string>
     <string name="lockedLevelText">Oops ! This level is currently locked, Complete pending levels to unlock this one</string>
+    <string name="correct_ans">The Query submitted by you for this question is Correct.</string>
     <string name="sample">Abc</string>
+    <string name="congrats">Congratulations !</string>
+    <string name="oops">Oops !</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ducimus amet optio ullam sunt minima dignissimos sit reprehenderit minus temporibus.</string>
+    <string name="incorrect_ans">The query Submitted by you is not giving the same results which we are expecting to be</string>
 
     <!--    level 1 -->
     <string name="Q_0_0">PlaceHolder value fioernfoi34fnklewmfoie ndfioernf3,mfn</string>
