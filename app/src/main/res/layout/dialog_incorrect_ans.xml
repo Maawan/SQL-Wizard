@@ -18,6 +18,7 @@
             android:id="@+id/image"
             android:src="@drawable/restricted_area"
             android:layout_centerHorizontal="true" />
+<!--        okfmro-->
         <TextView
             android:layout_width="match_parent"
             android:gravity="center"
