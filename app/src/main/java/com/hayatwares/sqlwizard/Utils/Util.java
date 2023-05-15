@@ -7,13 +7,15 @@ import android.net.NetworkInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 
 import com.hayatwares.sqlwizard.R;
 
 public class Util {
-    public static float Global_Main_Value = 0.0f;
+    public static float Global_Main_Value = 0.2f;
 
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
@@ -41,10 +43,28 @@ public class Util {
     public static void displayLockedDialog(Activity contex){
         AlertDialog.Builder builder = new AlertDialog.Builder(contex);
         ViewGroup viewGroup = contex.findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.dialog_incorrect_ans, viewGroup, false);
+        View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.dialog_locked_question, viewGroup, false);
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+    public static void displayIncorrectAnsDialog(Activity context , String s){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        ViewGroup viewGroup = context.findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.dialog_incorrect_ans, viewGroup, false);
+        TextView userAns = (TextView) dialogView.findViewById(R.id.userAns);
+        userAns.setText(s + "");
+        CardView closeButton = (CardView) dialogView.findViewById(R.id.closeDialogButton);
+
+        builder.setView(dialogView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
     }
     private static String getStringFromResources(Context context , String name){
         try{
@@ -54,6 +74,7 @@ public class Util {
             return "";
         }
     }
+
     public static String getQuestionStatement(int level , int question , Context context){
         return getStringFromResources(context , "Q_"+level+"_"+question);
     }

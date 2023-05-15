@@ -44,48 +44,56 @@
             android:id="@+id/message"
             android:fontFamily="@raw/font1"
             android:text="@string/incorrect_ans"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_below="@+id/message"
             android:layout_marginRight="20dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:id="@+id/wrong_ans_layout"
             android:layout_marginLeft="20dp"
             android:background="@drawable/corner_radius"
-            android:layout_height="80dp">
-            <TextView
+            android:layout_height="wrap_content">
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:textStyle="bold"
-                android:textColor="#616161"
-                android:maxLines="1"
-                android:fontFamily="@raw/font1"
-                android:layout_height="wrap_content"
-                android:text="Your Answer"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:textColor="#EF9A9A"
-                android:text="@string/lorem"
-                android:id="@+id/userAns"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:textStyle="bold"
-                android:maxLines="1"
-                android:textColor="#616161"
-                android:fontFamily="@raw/font1"
-                android:layout_height="wrap_content"
-                android:text="Expected Answer"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:textColor="#26A69A"
-                android:text="@string/lorem"
-                android:id="@+id/expectedAns"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#616161"
+                    android:id="@+id/one"
+                    android:fontFamily="@raw/font1"
+                    android:layout_height="wrap_content"
+                    android:text="Your Answer"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/one"
+                    android:textColor="#EF9A9A"
+                    android:text="@string/lorem"
+                    android:id="@+id/userAns"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/userAns"
+                    android:id="@+id/three"
+                    android:textColor="#616161"
+                    android:fontFamily="@raw/font1"
+                    android:layout_height="wrap_content"
+                    android:text="Expected Answer"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/three"
+                    android:textColor="#26A69A"
+                    android:text="Heelo eotld this is maawna ahmad wordking from android studion ioermfoifmm  wehnfiurnfi fnierjfoi fernfioer"
+                    android:id="@+id/expectedAns"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -95,6 +103,7 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:elevation="10dp"
             android:layout_marginTop="15dp"
+            android:id="@+id/closeDialogButton"
             android:layout_below="@+id/wrong_ans_layout"
             android:layout_marginLeft="50dp"
             android:layout_marginBottom="10dp"
@@ -105,6 +114,7 @@
                 android:layout_height="match_parent"
                 android:text="Okay :)"
                 android:gravity="center"
+
                 android:background="@color/App_Main_Color"
                 android:fontFamily="@raw/font1"
                 android:textColor="#fff"/>

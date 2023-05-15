@@ -79,6 +79,28 @@ public class MyDbHandler extends SQLiteOpenHelper {
             }
             cursor.close();
             return true;
+        }else if(level == 0 && questionNo == 1){
+            db.execSQL("CREATE TABLE entries(id INTEGER PRIMARY KEY, name TEXT , city TEXT)");
+            db.rawQuery("INSERT INTO entries VALUES(1 , 'Karan' , 'Delhi') " , null , null);
+            db.rawQuery("INSERT INTO entries VALUES(2 , 'Aman' , 'Delhi') " , null , null);
+            db.rawQuery("INSERT INTO entries VALUES(3 , 'Raj' , 'Chennai') " , null , null);
+            db.rawQuery("INSERT INTO entries VALUES(4 , 'Ram' , 'Delhi') " , null , null);
+            ArrayList<String> ansToBe = new ArrayList<>();
+            ansToBe.add("Mawan");
+            ansToBe.add("Karan");
+            ansToBe.add("Bsdk hai");
+            ansToBe.add("Lawda bhi hai");
+            Cursor cursor = null;
+            query = "SELECT id FROM entries;";
+            try{
+                cursor = db.rawQuery(query , null , null);
+            }catch (Exception e){
+                return false;
+            }
+            Log.e("COunt ", String.valueOf(cursor.getColumnCount()));
+            int count = cursor.getColumnCount();
+            System.out.println(count + " ");
+
         }
         return false;
     }
@@ -90,4 +112,6 @@ public class MyDbHandler extends SQLiteOpenHelper {
         String query = "DROP TABLE" + " IF EXISTS " + tableName + ";";
         db.execSQL(query); ;
     }
+
+
 }

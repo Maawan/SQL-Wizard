@@ -30,6 +30,7 @@ import com.hayatwares.sqlwizard.Models.Question;
 import com.hayatwares.sqlwizard.R;
 import com.hayatwares.sqlwizard.Utils.Autofill;
 import com.hayatwares.sqlwizard.Utils.SpaceTokenizer;
+import com.hayatwares.sqlwizard.Utils.Util;
 
 import org.w3c.dom.Text;
 
@@ -120,9 +121,11 @@ public class QuestionPage extends AppCompatActivity {
                     if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion)){
                         Toast.makeText(QuestionPage.this, "Correct Answer !", Toast.LENGTH_SHORT).show();
                     }else{
+                        Util.displayIncorrectAnsDialog(QuestionPage.this , "");
                         Toast.makeText(QuestionPage.this, "Oops ! your answer is not correct", Toast.LENGTH_SHORT).show();
                     }
                 }else{
+                    Util.displayIncorrectAnsDialog(QuestionPage.this , "");
                     Toast.makeText(QuestionPage.this, "Query is Empty ", Toast.LENGTH_SHORT).show();
                 }
             }
