@@ -9,7 +9,7 @@
     <string name="incorrect_ans">The query Submitted by you is not giving the same results which we are expecting to be</string>
 
     <!--    level 1 -->
-    <string name="Q_0_0">PlaceHolder value fioernfoi34fnklewmfoie ndfioernf3,mfn</string>
+    <string name="Q_0_0">There is a table named abc. You need to write query to display all data from that table</string>
     <string name="H1_0_0">Hint 1 </string>
     <string name="H2_0_0">Hint 2</string>
     <string name="I_0_0" tools:ignore="Typos">question1_image</string>

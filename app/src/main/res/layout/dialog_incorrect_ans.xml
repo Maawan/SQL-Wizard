@@ -70,6 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/one"
+                    android:minHeight="30dp"
                     android:textColor="#EF9A9A"
                     android:text="@string/lorem"
                     android:id="@+id/userAns"/>
@@ -87,6 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/three"
                     android:textColor="#26A69A"
+                    android:minHeight="30dp"
                     android:text="Heelo eotld this is maawna ahmad wordking from android studion ioermfoifmm  wehnfiurnfi fnierjfoi fernfioer"
                     android:id="@+id/expectedAns"/>
 

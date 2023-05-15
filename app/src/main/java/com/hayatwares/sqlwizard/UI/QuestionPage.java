@@ -26,6 +26,7 @@ import android.view.View.OnKeyListener;
 import android.widget.Toast;
 
 import com.hayatwares.sqlwizard.Database.MyDbHandler;
+import com.hayatwares.sqlwizard.Interfaces.DisplayIncorrectDialog;
 import com.hayatwares.sqlwizard.Models.Question;
 import com.hayatwares.sqlwizard.R;
 import com.hayatwares.sqlwizard.Utils.Autofill;
@@ -34,7 +35,7 @@ import com.hayatwares.sqlwizard.Utils.Util;
 
 import org.w3c.dom.Text;
 
-public class QuestionPage extends AppCompatActivity {
+public class QuestionPage extends AppCompatActivity implements DisplayIncorrectDialog {
     TextView question;
     int curLevel = -1;
     int curQuestion = -1;
@@ -63,7 +64,7 @@ public class QuestionPage extends AppCompatActivity {
         curQuestionObject = new Question(curLevel , curQuestion ,this );
 
 
-        dbHandler = new MyDbHandler(QuestionPage.this);
+        dbHandler = new MyDbHandler(QuestionPage.this , this);
         levelView = findViewById(R.id.levelTextView);
         problemView = findViewById(R.id.problemTextView);
 
@@ -118,18 +119,20 @@ public class QuestionPage extends AppCompatActivity {
             public void onClick(View view) {
                 String q = queryEditText.getText().toString();
                 if(!q.equals("")){
-                    if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion)){
-                        Toast.makeText(QuestionPage.this, "Correct Answer !", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Util.displayIncorrectAnsDialog(QuestionPage.this , "");
-                        Toast.makeText(QuestionPage.this, "Oops ! your answer is not correct", Toast.LENGTH_SHORT).show();
-                    }
+                    if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion))
+                        Toast.makeText(QuestionPage.this, "Correct Ans", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(QuestionPage.this, "Retured False", Toast.LENGTH_SHORT).show();
                 }else{
-                    Util.displayIncorrectAnsDialog(QuestionPage.this , "");
-                    Toast.makeText(QuestionPage.this, "Query is Empty ", Toast.LENGTH_SHORT).show();
+                    displayDialog("Query is Empty..." , "Query is Empyt");
                 }
             }
         });
 
+    }
+
+    @Override
+    public void displayDialog(String userAns, String expectedAns) {
+        Util.displayIncorrectAnsDialog(QuestionPage.this , userAns , "");
     }
 }
