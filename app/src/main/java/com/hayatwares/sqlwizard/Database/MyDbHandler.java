@@ -86,15 +86,15 @@ public class MyDbHandler extends SQLiteOpenHelper {
 //            int numberOfColums = 0;
 //            //Cursor tempCursor = cursor;
 //            ArrayList<String> columnsName = new ArrayList<>();
-////            try{
-////                while(true){
-////                    String curColumnName = cursor.getColumnName(numberOfColums);
-////                    numberOfColums++;
-////                    columnsName.add(curColumnName);
-////                }
-////            }catch (Exception e){
-////
-////            }
+//            try{
+//                while(true){
+//                    String curColumnName = cursor.getColumnName(numberOfColums);
+//                    numberOfColums++;
+//                    columnsName.add(curColumnName);
+//                }
+//            }catch (Exception e){
+//
+//            }
 //            System.out.print(numberOfColums + " ");
 ////            if(cursor == null){
 ////                System.out.println("Null Kr diya bsdk ne");
@@ -139,6 +139,23 @@ public class MyDbHandler extends SQLiteOpenHelper {
             }
             if(cursor == null) return false;
             ArrayList<String> userAns = new ArrayList<>();
+
+            int numberOfColums = 0;
+            //Cursor tempCursor = cursor;
+            ArrayList<String> columnsName = new ArrayList<>();
+            String temp = "";
+            try{
+                while(true){
+                    String curColumnName = cursor.getColumnName(numberOfColums);
+                    numberOfColums++;
+                    columnsName.add(curColumnName);
+                    temp = cursor.getString(cursor.getColumnIndex(curColumnName));
+                }
+            }catch (Exception e){
+
+            }
+
+
             String s = DatabaseUtils.dumpCursorToString(cursor);
             System.out.println(s);
             while(cursor.moveToNext()){
