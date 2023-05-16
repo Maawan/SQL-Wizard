@@ -1,7 +1,10 @@
 package com.hayatwares.sqlwizard.UI;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +12,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -120,9 +126,8 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
                 String q = queryEditText.getText().toString();
                 if(!q.equals("")){
                     if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion))
-                        Toast.makeText(QuestionPage.this, "Correct Ans", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(QuestionPage.this, "Retured False", Toast.LENGTH_SHORT).show();
+                        displayCorrectAnsDialog();
+
                 }else{
                     displayDialog("Query is Empty..." , "Query is Empyt");
                 }
@@ -133,6 +138,21 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
 
     @Override
     public void displayDialog(String userAns, String expectedAns) {
-        Util.displayIncorrectAnsDialog(QuestionPage.this , userAns , "");
+        Util.displayIncorrectAnsDialog(QuestionPage.this , userAns , expectedAns);
+    }
+    public void displayCorrectAnsDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        ViewGroup viewGroup = this.findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.dialog_correct_ans, viewGroup, false);
+        Button nextQuestion = (Button) dialogView.findViewById(R.id.nextQuestionBtn);
+        builder.setView(dialogView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        nextQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
     }
 }

@@ -12,11 +12,11 @@
     <string name="Q_0_0">There is a table named abc. You need to write query to display all data from that table</string>
     <string name="H1_0_0">Hint 1 </string>
     <string name="H2_0_0">Hint 2</string>
-    <string name="I_0_0" tools:ignore="Typos">question1_image</string>
+    <string name="I_0_0" tools:ignore="Typos">level0_question1_image</string>
 
 <!--    level 2-->
-    <string name="Q_0_1">PlaceHolder 2 value fioernfoi34fnklewmfoie ndfioernf3,mfn</string>
+    <string name="Q_0_1">There is a table name . You need to write the query to extract employee names whose salary is greater than 2000</string>
     <string name="H1_0_1">Hint 2 </string>
     <string name="H2_0_1">Hint 2</string>
-    <string name="I_0_1" tools:ignore="Typos">question1_image</string>
+    <string name="I_0_1" tools:ignore="Typos">level0_question2_image</string>
 </resources>
