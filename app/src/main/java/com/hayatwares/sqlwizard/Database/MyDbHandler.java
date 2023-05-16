@@ -66,10 +66,15 @@ public class MyDbHandler extends SQLiteOpenHelper {
                 return false;
             }
             if(cursor == null) return false;
+
             ArrayList<String> userAns = new ArrayList<>();
             while(cursor.moveToNext()){
                 userAns.add(cursor.getString(cursor.getColumnIndex("name")));
                 //userAns.add(cur)
+            }
+            if(userAns.size() == 0) {
+                cursor.close();
+                return false;
             }
             for(int i = 0 ; i < Math.min(userAns.size() , ansToBe.size()) ; i++){
                 if(!userAns.get(i).equals(ansToBe.get(i))){
