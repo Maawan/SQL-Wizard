@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -138,10 +139,13 @@ public class MyDbHandler extends SQLiteOpenHelper {
             }
             if(cursor == null) return false;
             ArrayList<String> userAns = new ArrayList<>();
+            String s = DatabaseUtils.dumpCursorToString(cursor);
+            System.out.println(s);
             while(cursor.moveToNext()){
                 userAns.add(cursor.getString(cursor.getColumnIndex("name")));
                 //userAns.add(cur)
             }
+
             if(userAns.size() == 0) {
                 cursor.close();
                 return false;
