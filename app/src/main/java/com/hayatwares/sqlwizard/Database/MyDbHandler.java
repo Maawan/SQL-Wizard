@@ -107,6 +107,7 @@ public class MyDbHandler extends SQLiteOpenHelper {
             System.out.print(userAns + " ");
             if(!userAns.equals(ansToBe)){
                 incorrectDialog.displayDialog(userAns , ansToBe);
+                System.out.println("DOne");
                 cursor.close();
                 return false;
             }
