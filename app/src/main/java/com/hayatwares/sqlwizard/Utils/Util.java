@@ -15,7 +15,7 @@ import androidx.cardview.widget.CardView;
 import com.hayatwares.sqlwizard.R;
 
 public class Util {
-    public static float Global_Main_Value = 0.2f;
+    public static float Global_Main_Value = 0.0f;
 
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
@@ -48,12 +48,16 @@ public class Util {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-    public static void displayIncorrectAnsDialog(Activity context , String s){
+    public static void displayIncorrectAnsDialog(Activity context , String userAnsStr, String expectedAns){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         ViewGroup viewGroup = context.findViewById(android.R.id.content);
         View dialogView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.dialog_incorrect_ans, viewGroup, false);
         TextView userAns = (TextView) dialogView.findViewById(R.id.userAns);
-        userAns.setText(s + "");
+        userAns.setText(userAnsStr + "");
+        TextView expectedAnsView = (TextView) dialogView.findViewById(R.id.expectedAns);
+        expectedAnsView.setText(expectedAns);
+
+
         CardView closeButton = (CardView) dialogView.findViewById(R.id.closeDialogButton);
 
         builder.setView(dialogView);

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // CREATE DEFAULT DATABASE
-        MyDbHandler db = new MyDbHandler(MainActivity.this);
+        MyDbHandler db = new MyDbHandler(MainActivity.this , null);
         startActivity(new Intent(MainActivity.this, LevelsPage.class));
 
     }
