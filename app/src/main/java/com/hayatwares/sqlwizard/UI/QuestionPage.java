@@ -130,6 +130,7 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
 
                 }else{
                     displayDialog("Query is Empty..." , "Query is Empyt");
+                    System.out.println("OOps ! Query is Empty ");
                 }
             }
         });
