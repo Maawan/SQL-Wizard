@@ -15,7 +15,7 @@ import androidx.cardview.widget.CardView;
 import com.hayatwares.sqlwizard.R;
 
 public class Util {
-    public static float Global_Main_Value = 0.0f;
+    public static float Global_Main_Value = 0.2f;
 
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
