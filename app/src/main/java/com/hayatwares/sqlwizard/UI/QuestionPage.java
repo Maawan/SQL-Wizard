@@ -121,11 +121,11 @@ public class QuestionPage extends AppCompatActivity {
                     if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion)){
                         Toast.makeText(QuestionPage.this, "Correct Answer !", Toast.LENGTH_SHORT).show();
                     }else{
-                        Util.displayIncorrectAnsDialog(QuestionPage.this , "");
+                        //Util.displayIncorrectAnsDialog(QuestionPage.this , "");
                         Toast.makeText(QuestionPage.this, "Oops ! your answer is not correct", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Util.displayIncorrectAnsDialog(QuestionPage.this , "");
+                   // Util.displayIncorrectAnsDialog(QuestionPage.this , "");
                     Toast.makeText(QuestionPage.this, "Query is Empty ", Toast.LENGTH_SHORT).show();
                 }
             }

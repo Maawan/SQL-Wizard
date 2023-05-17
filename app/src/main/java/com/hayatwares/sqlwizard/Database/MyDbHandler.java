@@ -49,41 +49,7 @@ public class MyDbHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         clearDatabase(db);
         if(level == 0 && questionNo == 0){
-            db.execSQL("CREATE TABLE Abc(id INTEGER, name TEXT)");
-            db.rawQuery("INSERT INTO Abc values(1 , 'Mawan');" , null , null);
-            db.rawQuery("INSERT INTO Abc values(2 , 'Karan');" , null , null);
-            db.rawQuery("INSERT INTO Abc values(3 , 'Bsdk hai');" , null , null);
-            db.rawQuery("INSERT INTO Abc values(4 , 'Lawda bhi hai');" , null , null);
-            ArrayList<String> ansToBe = new ArrayList<>();
-            ansToBe.add("Mawan");
-            ansToBe.add("Karan");
-            ansToBe.add("Bsdk hai");
-            ansToBe.add("Lawda bhi hai");
-            Cursor cursor = null;
-            try{
-                cursor = db.rawQuery(query , null , null);
-            }catch (Exception e){
-                return false;
-            }
-            if(cursor == null) return false;
-
-            ArrayList<String> userAns = new ArrayList<>();
-            while(cursor.moveToNext()){
-                userAns.add(cursor.getString(cursor.getColumnIndex("name")));
-                //userAns.add(cur)
-            }
-            if(userAns.size() == 0) {
-                cursor.close();
-                return false;
-            }
-            for(int i = 0 ; i < Math.min(userAns.size() , ansToBe.size()) ; i++){
-                if(!userAns.get(i).equals(ansToBe.get(i))){
-                    cursor.close();
-                    return false;
-                }
-            }
-            cursor.close();
-            return true;
+            return false;
         }else if(level == 0 && questionNo == 1){
             db.execSQL("CREATE TABLE entries(id INTEGER PRIMARY KEY, name TEXT , city TEXT)");
             db.rawQuery("INSERT INTO entries VALUES(1 , 'Karan' , 'Delhi') " , null , null);
