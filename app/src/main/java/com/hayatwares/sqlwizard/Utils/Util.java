@@ -16,7 +16,6 @@ import com.hayatwares.sqlwizard.R;
 
 public class Util {
     public static float Global_Main_Value = 0.2f;
-
     public static boolean isConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
@@ -32,12 +31,12 @@ public class Util {
 
     public static int getTotalQuestionCount(int level){
         if(level == 0){
-            return 46;
+            return 5;
         }else if(level == 1){
-            return 12;
+            return 5;
         }else if(level == 2){
-            return 64;
-        }else if(level == 3) return 10;
+            return 5;
+        }else if(level == 3) return 5;
         return -1;
     }
     public static void displayLockedDialog(Activity contex){
@@ -92,3 +91,5 @@ public class Util {
     }
 
 }
+
+

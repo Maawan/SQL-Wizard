@@ -7,8 +7,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -45,6 +47,14 @@ public class LevelsPage extends AppCompatActivity {
         init();
         activity = this;
         //startActivity(new Intent(LevelsPage.this , QuestionSelectionPage.class));
+
+        // checking
+        // SharedPreferences sharedPreferences = getSharedPreferences("connection", Context.MODE_PRIVATE);
+//        int defaultValue = 0; // Default value to be returned if the key doesn't exist
+//        String key = "status"; // The key used to store the integer value
+//        int retrievedValue = sharedPreferences.getInt(key, defaultValue);
+//        String msg = " " + retrievedValue;
+//        Log.e("status",msg);
     }
     private void init(){
         lockedLayout1 = findViewById(R.id.lockedLayout1);

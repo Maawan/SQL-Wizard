@@ -3,6 +3,7 @@ package com.hayatwares.sqlwizard.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +26,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
     float questions;
     int totalQuestions;
     Context context;
-     private int curLevel;
+    private int curLevel;
     LockedButtonPushed pushedInterface;
-    public GridAdapter(int totalQuestion , float unlockedQuestions , Context context , LockedButtonPushed pushedInterface){
+    public GridAdapter(int curLevel, int totalQuestion , float unlockedQuestions , Context context , LockedButtonPushed pushedInterface){
+        this.curLevel = curLevel;
         this.totalQuestions = totalQuestion;
         this.pushedInterface = pushedInterface;
         this.questions = unlockedQuestions;
@@ -55,6 +57,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridHolder> {
         holder.wholeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("chimmanlal",curLevel+" "+position);
                 if(position+1 > questions){
                     pushedInterface.pushed();
                 }else{

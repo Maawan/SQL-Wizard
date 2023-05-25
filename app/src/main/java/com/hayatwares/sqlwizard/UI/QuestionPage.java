@@ -7,6 +7,9 @@ import androidx.cardview.widget.CardView;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,6 +37,7 @@ import android.widget.Toast;
 import com.hayatwares.sqlwizard.Database.MyDbHandler;
 import com.hayatwares.sqlwizard.Interfaces.DisplayIncorrectDialog;
 import com.hayatwares.sqlwizard.Models.Question;
+import com.hayatwares.sqlwizard.Network.NetworkChangeListener;
 import com.hayatwares.sqlwizard.R;
 import com.hayatwares.sqlwizard.Utils.Autofill;
 import com.hayatwares.sqlwizard.Utils.SpaceTokenizer;
@@ -54,8 +58,20 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
     private RelativeLayout submitQueryBtn;
     private MyDbHandler dbHandler;
     private MultiAutoCompleteTextView queryEditText;
-    @Override
 
+    NetworkChangeListener network_change =  new NetworkChangeListener();
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(network_change, filter);
+        super.onStart();
+    }
+    @Override
+    protected void onStop() {
+        unregisterReceiver(network_change);
+        super.onStop();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
@@ -66,6 +82,7 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
         queryEditText = findViewById(R.id.autoComplete);
         curQuestion = intent.getIntExtra("questionNo" , 0);
         submitQueryBtn = findViewById(R.id.submitQueryBtn);
+        Toast.makeText(this, curLevel + " " + curQuestion, Toast.LENGTH_SHORT).show();
 
         curQuestionObject = new Question(curLevel , curQuestion ,this );
 
@@ -123,20 +140,25 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
         submitQueryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("submmit","submmit");
                 String q = queryEditText.getText().toString();
                 if(!q.equals("")){
 
-                   
-         
-                if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion))
+
+
+                    if(dbHandler.checkAndValidateAnswer(q,curLevel , curQuestion))
+                    {
+                        Log.e("ji","ji");
                         displayCorrectAnsDialog();
+                    }
+
 
                 }else{
                     displayDialog("Query is Empty..." , "Query is Empyt");
                     System.out.println("OOps ! Query is Empty ");
 
                 }
-                
+
             }
         });
 
@@ -154,10 +176,65 @@ public class QuestionPage extends AppCompatActivity implements DisplayIncorrectD
         builder.setView(dialogView);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+
+        // important ChodBhangda *DO NOT TOUCH*
+        // if equal increment it.
+        SharedPreferences getShared=getSharedPreferences("Global",MODE_PRIVATE);
+        String values = getShared.getString("Value","0.2f");
+        float value = Float.valueOf(values);
+        int level = (int) ((value - (int)value) * 10);
+        Log.e("outer",level +" "+ value);
+        if(curLevel==(int)value && curQuestion==((level/2)-1))
+        {
+
+            Toast.makeText(this, "in here", Toast.LENGTH_SHORT).show();
+            value = value + 0.2f;
+            Util.Global_Main_Value = value;
+            String Value = Float.toString(value);
+            Log.e("updated","imcremeting level passed");
+            getShared = getSharedPreferences("Global", MODE_PRIVATE);
+            SharedPreferences.Editor editor = getShared.edit();
+            editor.putString("Value",Value);
+            editor.apply();
+
+            // just doubel ckeck no need
+            getShared=getSharedPreferences("Global",MODE_PRIVATE);
+            values = getShared.getString("Value","0.2f");
+            value = Float.valueOf(values);
+            Log.e("check",values);
+        }
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 alertDialog.dismiss();
+                if(Util.Global_Main_Value==(int)Util.Global_Main_Value && curLevel+1==(int)Util.Global_Main_Value)
+                {
+                    // yeh wala intent tab fire hoga jab level ke sare sub-questions complete ho jayenge.
+                    if(Util.Global_Main_Value==curLevel+1)
+                    {
+                        SharedPreferences getShared=getSharedPreferences("Global",MODE_PRIVATE);
+                        String values = getShared.getString("Value","0.2f");
+                        float value = Float.valueOf(values);
+                        value = value + 0.2f;
+                        Util.Global_Main_Value = value;
+                        String Value = Float.toString(value);
+                        Log.e("updated","imcremeting level passed");
+                        getShared = getSharedPreferences("Global", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = getShared.edit();
+                        editor.putString("Value",Value);
+                        editor.apply();
+                        Log.e("next Check",Value);
+                    }
+                    Intent intent = new Intent(QuestionPage.this, LevelsPage.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    // ni tho yeh question selection ka intent.
+                    Intent intent = new Intent(QuestionPage.this, QuestionSelectionPage.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }

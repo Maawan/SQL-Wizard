@@ -18,7 +18,7 @@ import java.util.List;
 public class MyDbHandler extends SQLiteOpenHelper {
 
     private DisplayIncorrectDialog incorrectDialog;
-    private static String DATABASE_NAME = "Karan_BSDK_KA_HAI_MAA_KA_LAUDA_HAI";
+    private static String DATABASE_NAME = "Maawan_Lodu";
     public MyDbHandler(Context context , DisplayIncorrectDialog incorrectDialog) {
         super(context, DATABASE_NAME, null, 1);
         this.incorrectDialog = incorrectDialog;
@@ -174,6 +174,22 @@ public class MyDbHandler extends SQLiteOpenHelper {
                 return false;
             }
             cursor.close();
+            return true;
+        }
+        else if(level == 0 && questionNo == 2)
+        {
+            return true;
+        }
+        else if(level == 0 && questionNo == 3)
+        {
+            return true;
+        }
+        else if(level == 0 && questionNo == 4)
+        {
+            return true;
+        }
+        else if(level == 1 && questionNo ==1)
+        {
             return true;
         }
         return false;
